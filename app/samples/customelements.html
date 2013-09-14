@@ -4,22 +4,109 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <title></title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
+    <meta name="description" content=""/>
+    <meta name="viewport" content="width=device-width"/>
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/polymer-ui-elements/basic.css"/>
+    <link rel="stylesheet" href="/styles/main.css"/>
+    <style>
+        polymer-ui-collapsible {
+            margin-bottom: 2px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+        }
+
+        .polymer-ui-collapsible-header {
+            padding: 10px;
+            border-bottom: 1px solid #bcbcbc;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .content {
+            padding: 10px;
+        }
+    </style>
     <!-- build:js scripts/vendor/modernizr.js -->
     <script src="/bower_components/modernizr/modernizr.js"></script>
     <!-- endbuild -->
 
+    <link rel="import" href="/polymer-ui-elements/polymer-ui-accordion/polymer-ui-accordion.html">
     <!-- Place your HTML imports here -->
 </head>
-<body>
+<body theme="polymer-ui-light-theme">
     <div class="container">
-       <h1>Custom Elements</h1> 
+       <polymer-ui-accordion selected="0">
+        <polymer-ui-collapsible>
+            <div class="polymer-ui-collapsible-header">
+                btn-link
+            </div>
+            <div>
+                <h2>html</h2>
+                <code>
+                    &lt;btn-link link="/url"&gt;Button Text&lt;/btn-link&gt;
+                </code>
+                <h2>javascript</h2>
+                <code>
+                    <pre>
+                        &lt;polymer-element<br/> 
+                          name="btn-link"  <br/>
+                          constructor="ButtonElement" <br/>
+                          attributes="link"&gt;<br/>
+                          &lt;template&gt;<br/>
+                            &lt;style&gt;<br/>
+                              @host { :scope {display: block;} }<br/>
+                            &lt;/style&gt;<br/>
+                            &lt;button id="btn"&gt;<br/>
+                              &lt;content&gt;&lt;/content&gt;<br/>
+                            &lt;/button&gt;<br/>
+                          &lt;/template&gt;<br/>
+                          &lt;script&gt;<br/>
+                            Polymer('btn-link', {<br/>
+                              //applyAuthorStyles: true,<br/>
+                              //resetStyleInheritance: true,<br/>
+                              ready: function() {<br/>
+                                var _this = this;<br/>
+                                this.$.btn.onclick = function(e) {<br/>
+                                  e = e || event;<br/>
+                                  if (e.stopPropagation) e.stopPropagation();<br/>
+                                  window.location = _this.link;<br/>
+                                };<br/>
+                              },<br/>
+                              enteredDocument: function() { },<br/>
+                              leftDocument: function() { },<br/>
+                              attributeChanged: function(attrName, oldVal, newVal) {        <br/>
+                              },<br/>
+                              link: ''<br/>
+                            });<br/>
+                          &lt;/script&gt;<br/>
+                        &lt;/polymer-element&gt;
+                    </pre>
+                </code>
+            </div>
+        </polymer-ui-collapsible>
+        <polymer-ui-collapsible>
+            <div class="polymer-ui-collapsible-header">Accordion</div>
+            <div>
+                <h2>html</h2>
+                <code>
+                    <pre>
+                        &lt;polymer-ui-accordion&gt;<br/>
+                            &lt;polymer-ui-collapsible&gt;<br/>
+                                &lt;div class="polymer-ui-collapsible-header"&gt;Header name&gt;&lt;/div&gt;<br/>
+                                &lt;div&gt;HTML markup for content&lt;/div&gt;<br/>
+                            &lt;/polymer-ui-collapsible&gt;<br/>
+                        &lt;/polyer-ui-accordion&gt;
+                    </pre>
+                </code>
+                <h2>javascript</h2>
+                <code>It's done for you!</code>
+            </div>
+        </polymer-ui-collapsible>
+       </polymer-ui-accordion> 
     </div>
 
 

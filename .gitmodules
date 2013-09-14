@@ -1,0 +1,6 @@
+[submodule "app/polymer-ui-elements"]
+	path = app/polymer-ui-elements
+	url = https://github.com/Polymer/polymer-ui-elements.git
+[submodule "app/polymer-elements"]
+	path = app/polymer-elements
+	url = https://github.com/Polymer/polymer-elements.git
