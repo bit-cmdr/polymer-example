@@ -1,0 +1,33 @@
+<polymer-element 
+  name="btn-link"  
+  constructor="ButtonElement" 
+  attributes="link">
+  <template>
+    <style>
+      @host { :scope {display: block;} }
+    </style>
+    <button id="btn">
+      <content></content>
+    </button>
+  </template>
+  <script>
+    Polymer('btn-link', {
+      //applyAuthorStyles: true,
+      //resetStyleInheritance: true,
+      ready: function() {
+        var _this = this;
+        console.log(_this);
+        this.$.btn.onclick = function(e) {
+          e = e || event;
+          if (e.stopPropagation) e.stopPropagation();
+          window.location = _this.link;
+        };
+      },
+      enteredDocument: function() { },
+      leftDocument: function() { },
+      attributeChanged: function(attrName, oldVal, newVal) {        
+      },
+      link: ''
+    });
+  </script>
+</polymer-element>
