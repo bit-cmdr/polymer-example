@@ -1,0 +1,25 @@
+doctype 5
+html(lang='en', class='no-js')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='description', content='NEMP')
+    meta(name='viewport', content='width=device-width')
+    title= 'Node, Express, Mongo, Polymer (NEMP)'
+  script(src='/bower_components/modernizr/modernizr.js')
+  link(rel='stylesheet', href='/styles/main.css')
+  block css
+  link(rel='import', href='/polymer-ui-elements/polymer-ui-toolbar/polymer-ui-toolbar.html')
+  link(rel='import', href='/polymer-ui-elements/polymer-ui-icon-button/polymer-ui-icon-button.html')
+
+  block imports
+  body.polymer-ui-body-text(theme='polymer-ui-dark-theme')
+    polymer-ui-toolbar
+        polymer-ui-icon-button(icon='menu')
+        div(flex) Title
+        polymer-ui-toolbar(responsive)
+        polymer-ui-icon-button(icon='settings')
+    section(id='main')
+      block content
+    script(scr='/bower_components/polymer/polymer.min.js')
+    block scripts

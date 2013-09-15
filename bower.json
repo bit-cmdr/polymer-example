@@ -1,9 +1,13 @@
 {
   "name": "polymer-example",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "dependencies": {
     "modernizr": "~2.6.2",
     "polymer": "latest"
   },
-  "devDependencies": {}
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "components"
+  ]
 }
